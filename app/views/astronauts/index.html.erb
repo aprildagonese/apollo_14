@@ -1,0 +1,14 @@
+<h1>Astronauts</h1>
+
+<%# <%= link_to 'Add a New Astronaut', new_astronaut_path %> %>
+
+<h2>Average Astronaut Age: <%= Astronaut.average(:age) %></h2>
+
+<% @astronauts.each do |astronaut| %>
+<section id="astronaut-<%=astronaut.id%>">
+  <h2>Name: <%= astronaut.name %> </h2>
+  <h2>Age: <%= astronaut.age %> </h2>
+  <h2>Job: <%= astronaut.job %> </h2>
+  <h2>Missions: <% astronaut.missions.order(:desc).each do |mission| %> <%= mission.title %> <% end %> </h2>
+</section>
+<% end %>
